@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Compatibility Test 💕</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 330px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .bar {
+      width: 100%;
+      height: 18px;
+      background: #eee;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 15px;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #ff4d6d, #ff758c);
+      transition: width 0.3s;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background: #ddd;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    <h1>Compatibility Test 💘</h1>
+    <p id="text">Analyzing Abir's cuteness… 🥺</p>
+    <div class="bar">
+      <div class="progress" id="progress"></div>
+    </div>
+  </div>
+
+  <script>
+    let progress = 0;
+    let texts = [
+      "Analyzing Abir's cuteness… 🥺",
+      "Calculating smile impact… 😍",
+      "Checking heart alignment… 💓",
+      "Result loading… ⏳"
+    ];
+    let textIndex = 0;
+
+    let interval = setInterval(() => {
+      progress += 10;
+      document.getElementById("progress").style.width = progress + "%";
+
+      if (progress % 25 === 0 && textIndex < texts.length) {
+        document.getElementById("text").innerText = texts[textIndex];
+        textIndex++;
+      }
+
+      if (progress >= 100) {
+        clearInterval(interval);
+        showQuestion();
+      }
+    }, 400);
+
+    function showQuestion() {
+      document.getElementById("card").innerHTML = `
+        <h1>Result 💖</h1>
+        <p>Compatibility: <strong>100%</strong> 😌✨<br><br>
+        Abir, will you be my Valentine?</p>
+        <button id="yes" onclick="yesClicked()">YES 💕</button>
+        <button id="no" onmouseover="moveNo()">No 🙄</button>
+      `;
+    }
+
+    function moveNo() {
+      const noBtn = document.getElementById("no");
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+          align-items:center;
+          background:linear-gradient(135deg,#ff758c,#ff7eb3);
+          color:white;
+          font-family:Arial;
+          text-align:center;
+        ">
+          <h1>YAAAY 💘🎉</h1>
+          <p>I knew it Abir 😎💖<br>
+          Best Valentine ever 🥰</p>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
